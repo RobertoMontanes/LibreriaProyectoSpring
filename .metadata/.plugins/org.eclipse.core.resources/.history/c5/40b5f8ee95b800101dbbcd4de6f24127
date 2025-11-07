@@ -1,0 +1,16 @@
+package com.salesianostriana.dam.libreria.controller;
+
+import org.springframework.stereotype.Controller;
+
+import ch.qos.logback.core.model.Model;
+
+@Controller
+public class MainController {
+	
+	
+	@getMapping("/")
+	public String welcome(Model model) {
+		model.addAttribute("persona", new Persona("Roberto", "Montañés Ramos"));
+		return "index";
+	}
+}

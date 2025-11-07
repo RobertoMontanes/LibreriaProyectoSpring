@@ -1,0 +1,29 @@
+<footer class="bg-dark text-light mt-5 p-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Contacto</h5>
+                <p>Email: info@libreria.com</p>
+                <p>Tel: +34 600 000 000</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Horario</h5>
+                <p>Lunes - Viernes: 10:00 - 20:00</p>
+                <p>Sábado: 10:00 - 14:00</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Redes Sociales</h5>
+                <a href="#" class="text-light me-2"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-light me-2"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+                <form class="mt-2">
+                    <input type="email" class="form-control mb-2" placeholder="Suscribirse al newsletter">
+                    <button class="btn btn-warning w-100">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <small>&copy; 2025 Librería. Todos los derechos reservados.</small>
+        </div>
+    </div>
+</footer>

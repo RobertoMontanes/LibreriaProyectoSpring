@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
+    <fullyQualifiedTypeName name="com.salesianostriana.dam.libreria.service.LibroService"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="ch.qos.logback.core.model.Model"/>
+    <fullyQualifiedTypeName name="com.salesianostriana.dam.libreria.controller.getMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.query.EqlParser.New_valueContext"/>
+    <fullyQualifiedTypeName name="com.salesianostriana.dam.libreria.model.Autor"/>
+    <fullyQualifiedTypeName name="com.salesianostriana.dam.libreria.model.Libro"/>
+    <fullyQualifiedTypeName name="java.lang.Long"/>
+</qualifiedTypeNameHistroy>

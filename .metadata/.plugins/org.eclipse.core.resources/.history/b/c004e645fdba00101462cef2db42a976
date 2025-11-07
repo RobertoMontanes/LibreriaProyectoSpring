@@ -1,0 +1,21 @@
+-- Categorías
+INSERT INTO categoria (nombre) VALUES ('Ciencia Ficción');
+INSERT INTO categoria (nombre) VALUES ('Fantasía');
+INSERT INTO categoria (nombre) VALUES ('Terror');
+INSERT INTO categoria (nombre) VALUES ('Romántica');
+INSERT INTO categoria (nombre) VALUES ('Aventuras');
+
+-- Autores
+INSERT INTO autor (nombre, nacionalidad) VALUES ('Gabriel García Márquez', 'Colombiano');
+INSERT INTO autor (nombre, nacionalidad) VALUES ('J.K. Rowling', 'Británica');
+INSERT INTO autor (nombre, nacionalidad) VALUES ('Stephen King', 'Estadounidense');
+INSERT INTO autor (nombre, nacionalidad) VALUES ('Isaac Asimov', 'Ruso');
+INSERT INTO autor (nombre, nacionalidad) VALUES ('J.R.R. Tolkien', 'Británico');
+
+-- Libros
+INSERT INTO libro (titulo, precio, paginas, autor_id, categoria_id) VALUES ('Cien años de soledad', 19.99, 471, 1, 4);
+INSERT INTO libro (titulo, precio, paginas, autor_id, categoria_id) VALUES ('Harry Potter y la piedra filosofal', 24.99, 320, 2, 2);
+INSERT INTO libro (titulo, precio, paginas, autor_id, categoria_id) VALUES ('It', 15.50, 1138, 3, 3);
+INSERT INTO libro (titulo, precio, paginas, autor_id, categoria_id) VALUES ('Fundación', 12.75, 255, 4, 1);
+INSERT INTO libro (titulo, precio, paginas, autor_id, categoria_id) VALUES ('El Señor de los Anillos', 29.99, 1216, 5, 2);
+INSERT INTO libro (titulo, precio, paginas, autor_id, categoria_id) VALUES ('Crónica de una muerte anunciada', 14.50, 120, 1, 4);

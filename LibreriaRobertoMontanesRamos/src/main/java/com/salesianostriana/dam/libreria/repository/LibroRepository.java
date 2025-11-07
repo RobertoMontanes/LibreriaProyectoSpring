@@ -1,0 +1,23 @@
+package com.salesianostriana.dam.libreria.repository;
+
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.salesianostriana.dam.libreria.model.Libro;
+
+public interface LibroRepository extends JpaRepository<Libro, Long> {
+    
+    // Métodos existentes que ya tienes...
+    List<Libro> findByTituloContainingIgnoreCase(String titulo);
+    List<Libro> findByPrecioBetween(Double min, Double max);
+    List<Libro> findByAutorNombreContainingIgnoreCase(String nombreAutor);
+    List<Libro> findByCategoriaNombre(String categoriaNombre);
+    List<Libro> findAllByOrderByPrecioDesc();
+    List<Libro> findAllByOrderByTituloAsc();
+    List<Libro> findAllByOrderByPaginasAsc();
+    
+    @Query("SELECT l FROM Libro l WHERE l.paginas > :paginas ORDER BY l.precio DESC")
+    List<Libro> findLibrosConMasPaginasQue(@Param("paginas") int paginas);   
+}

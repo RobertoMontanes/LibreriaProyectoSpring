@@ -1,0 +1,68 @@
+package com.salesianostriana.dam.libreria.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.salesianostriana.dam.libreria.model.Libro;
+import com.salesianostriana.dam.libreria.model.Autor;
+import com.salesianostriana.dam.libreria.model.Categoria;
+
+import java.util.Arrays;
+import java.util.List;
+
+@Controller
+public class MainController {
+
+    @GetMapping("/")
+    public String welcome(Model model) {
+
+        // Crear autores de prueba
+        Autor autor1 = new Autor(1, "Miguel de Cervantes", "España");
+        Autor autor2 = new Autor(2, "George Orwell", "Reino Unido");
+        Autor autor3 = new Autor(3, "J.K. Rowling", "Reino Unido");
+
+        // Crear categorías de prueba
+        Categoria cat1 = new Categoria(1L, "Novela", null);
+        Categoria cat2 = new Categoria(2L, "Ciencia", null);
+        Categoria cat3 = new Categoria(3L, "Infantil", null);
+
+        // Crear libros de prueba
+        Libro libro1 = Libro.builder()
+                .id(1L)
+                .titulo("El Quijote")
+                .precio(19.99)
+                .paginas(1050)
+                .autor(autor1)
+                .categoria(cat1)
+                .build();
+
+        Libro libro2 = Libro.builder()
+                .id(2L)
+                .titulo("1984")
+                .precio(15.50)
+                .paginas(328)
+                .autor(autor2)
+                .categoria(cat2)
+                .build();
+
+        Libro libro3 = Libro.builder()
+                .id(3L)
+                .titulo("Harry Potter")
+                .precio(25.00)
+                .paginas(450)
+                .autor(autor3)
+                .categoria(cat3)
+                .build();
+
+        // Listas de prueba
+        List<Libro> librosDestacados = Arrays.asList(libro1, libro2, libro3);
+        List<Categoria> categorias = Arrays.asList(cat1, cat2, cat3);
+
+        // Pasar datos a Thymeleaf
+        model.addAttribute("librosDestacados", librosDestacados);
+        model.addAttribute("categorias", categorias);
+
+        return "index"; // index.html en templates
+    }
+}
