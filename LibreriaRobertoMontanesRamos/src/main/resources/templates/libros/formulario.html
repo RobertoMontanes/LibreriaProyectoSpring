@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head(${libro.id != null ? 'Editar Libro' : 'Nuevo Libro'})}"></head>
+<body>
+
+<nav th:replace="~{fragments :: navbar}"></nav>
+
+<main>
+    <div class="page-header">
+        <div class="container">
+            <h1>
+                <i th:class="${libro.id != null ? 'fas fa-edit' : 'fas fa-plus'}"></i>
+                <span th:text="${libro.id != null ? 'Editar Libro' : 'Nuevo Libro'}">Formulario</span>
+            </h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <form th:action="@{/libros/guardar}" th:object="${libro}" method="post">
+                            <input type="hidden" th:field="*{id}">
+
+                            <div class="mb-3">
+                                <label for="titulo" class="form-label">
+                                    <i class="fas fa-book"></i> Título *
+                                </label>
+                                <input type="text" class="form-control" id="titulo" 
+                                       th:field="*{titulo}" required>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="precio" class="form-label">
+                                        <i class="fas fa-euro-sign"></i> Precio *
+                                    </label>
+                                    <input type="number" step="0.01" class="form-control" 
+                                           id="precio" th:field="*{precio}" required>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="paginas" class="form-label">
+                                        <i class="fas fa-file-alt"></i> Páginas *
+                                    </label>
+                                    <input type="number" class="form-control" id="paginas" 
+                                           th:field="*{paginas}" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="autor" class="form-label">
+                                    <i class="fas fa-user"></i> Autor *
+                                </label>
+                                <select class="form-select" id="autor" th:field="*{autor.id}" required>
+                                    <option value="">Selecciona un autor</option>
+                                    <option th:each="autor : ${autores}" 
+                                            th:value="${autor.id}" 
+                                            th:text="${autor.nombre}">Autor</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="categoria" class="form-label">
+                                    <i class="fas fa-tag"></i> Categoría *
+                                </label>
+                                <select class="form-select" id="categoria" th:field="*{categoria.id}" required>
+                                    <option value="">Selecciona una categoría</option>
+                                    <option th:each="categoria : ${categorias}" 
+                                            th:value="${categoria.id}" 
+                                            th:text="${categoria.nombre}">Categoría</option>
+                                </select>
+                            </div>
+
+                            <div class="d-flex gap-2 justify-content-end">
+                                <a href="/libros" class="btn btn-secondary">
+                                    <i class="fas fa-times"></i> Cancelar
+                                </a>
+                                <button type="submit" class="btn btn-custom">
+                                    <i class="fas fa-save"></i> Guardar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+<div th:replace="~{fragments :: scripts}"></div>
+
+</body>
+</html>

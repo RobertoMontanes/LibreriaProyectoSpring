@@ -1,0 +1,61 @@
+package com.salesianostriana.dam.libreria.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.salesianostriana.dam.libreria.model.Libro;
+import com.salesianostriana.dam.libreria.service.LibroService;
+
+@Controller
+public class LibroController {
+    
+    @Autowired
+    private LibroService libroService;
+    
+    // LISTAR todos los libros
+    @GetMapping("/libros")
+    public String listarLibros(Model model) {
+        model.addAttribute("libros", libroService.findAll());
+        return "libros/lista"; // archivo: templates/libros/lista.html
+    }
+    
+    // MOSTRAR formulario de nuevo libro
+    @GetMapping("/libros/nuevo")
+    public String nuevoLibroForm(Model model) {
+        model.addAttribute("libro", new Libro());
+        return "libros/formulario";
+    }
+    
+    // GUARDAR libro
+    @PostMapping("/libros/guardar")
+    public String guardarLibro(@ModelAttribute Libro libro) {
+        libroService.save(libro);
+        return "redirect:/libros";
+    }
+    
+    // VER detalle
+    @GetMapping("/libros/{id}")
+    public String verLibro(@PathVariable Long id, Model model) {
+        model.addAttribute("libro", libroService.findById(id));
+        return "libros/detalle";
+    }
+    
+    // EDITAR
+    @GetMapping("/libros/editar/{id}")
+    public String editarLibroForm(@PathVariable Long id, Model model) {
+        model.addAttribute("libro", libroService.findById(id));
+        return "libros/formulario";
+    }
+    
+    // ELIMINAR
+    @GetMapping("/libros/eliminar/{id}")
+    public String eliminarLibro(@PathVariable Long id) {
+        libroService.deleteById(id);
+        return "redirect:/libros";
+    }
+}

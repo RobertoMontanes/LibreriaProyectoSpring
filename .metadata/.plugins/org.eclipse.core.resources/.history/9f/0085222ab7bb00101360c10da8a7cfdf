@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Autores')}"></head>
+<body>
+
+<nav th:replace="~{fragments :: navbar}"></nav>
+
+<main>
+    <div class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-user-edit"></i> Autores</h1>
+            <p class="lead mb-0">Gestiona los autores de la librería</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="mb-4 text-end">
+            <a href="/autores/nuevo" class="btn btn-custom">
+                <i class="fas fa-plus"></i> Nuevo Autor
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="col-12" th:if="${autores.isEmpty()}">
+                <div class="alert alert-info text-center">
+                    <i class="fas fa-info-circle"></i> No hay autores registrados
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4" th:each="autor : ${autores}">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-user"></i>
+                            <span th:text="${autor.nombre}">Nombre</span>
+                        </h5>
+                        <p class="text-muted mb-3">
+                            <i class="fas fa-globe"></i>
+                            <span th:text="${autor.nacionalidad}">Nacionalidad</span>
+                        </p>
+                        <p class="mb-3">
+                            <span class="badge badge-custom">
+                                <i class="fas fa-book"></i>
+                                <span th:text="${autor.libros.size()}">0</span> libros
+                            </span>
+                        </p>
+                        <div class="d-flex gap-2">
+                            <a th:href="@{/autores/{id}(id=${autor.id})}" class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-eye"></i> Ver
+                            </a>
+                            <a th:href="@{/autores/editar/{id}(id=${autor.id})}" class="btn btn-sm btn-outline-warning">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                            <a th:href="@{/autores/eliminar/{id}(id=${autor.id})}" 
+                               class="btn btn-sm btn-outline-danger"
+                               onclick="return confirmarEliminacion('¿Eliminar este autor? Se eliminarán también sus libros.')">
+                                <i class="fas fa-trash"></i> Eliminar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+<div th:replace="~{fragments :: scripts}"></div>
+
+</body>
+</html>
