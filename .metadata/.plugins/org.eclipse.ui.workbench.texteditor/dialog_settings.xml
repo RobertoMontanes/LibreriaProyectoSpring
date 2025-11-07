@@ -2,8 +2,11 @@
 <section name="Workbench">
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<section name="java.lang.Class">
-		<item key="replaceBarOpen" value="false"/>
+		<item key="replaceBarOpen" value="true"/>
 		<list key="findhistory">
+			<item value="th:repl"/>
+			<item value="th:replace"/>
+			<item value="html"/>
 			<item value="long"/>
 		</list>
 	</section>
