@@ -10,4 +10,5 @@
     <fullyQualifiedTypeName name="com.salesianostriana.dam.libreria.model.Autor"/>
     <fullyQualifiedTypeName name="com.salesianostriana.dam.libreria.model.Libro"/>
     <fullyQualifiedTypeName name="java.lang.Long"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

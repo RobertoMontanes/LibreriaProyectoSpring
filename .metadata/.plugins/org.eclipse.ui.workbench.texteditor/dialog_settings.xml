@@ -4,6 +4,7 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="true"/>
 		<list key="findhistory">
+			<item value="enlaces"/>
 			<item value="th:repl"/>
 			<item value="th:replace"/>
 			<item value="html"/>
