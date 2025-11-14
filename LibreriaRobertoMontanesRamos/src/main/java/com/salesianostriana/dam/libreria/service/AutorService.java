@@ -12,17 +12,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class AutorService { // Solo una clase, sin interfaz ni @Transactional
+public class AutorService { 
 
     @Autowired
-    private AutorRepository autorRepository; // Repositorio de Autores
-
+    private AutorRepository autorRepository;
     @Autowired
-    private LibroRepository libroRepository; // Repositorio de Libros
-
-    // -------------------------------------------------------------------------
-    // MÉTODOS CRUD BÁSICOS
-    // -------------------------------------------------------------------------
+    private LibroRepository libroRepository;
 
     // Obtiene todos los autores y los devuelve ordenados por nombre
     public List<Autor> findAll() {
@@ -50,9 +45,6 @@ public class AutorService { // Solo una clase, sin interfaz ni @Transactional
         autorRepository.deleteById(id);
     }
 
-    // -------------------------------------------------------------------------
-    // LÓGICA DE NEGOCIO ESPECÍFICA
-    // -------------------------------------------------------------------------
 
     // Comprueba si el autor puede ser eliminado (solo si no tiene libros)
     public boolean puedeSerEliminado(Long id) {

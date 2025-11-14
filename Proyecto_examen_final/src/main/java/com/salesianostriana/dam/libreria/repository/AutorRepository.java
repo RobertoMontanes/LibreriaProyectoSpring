@@ -17,7 +17,7 @@ public interface AutorRepository extends JpaRepository<Autor, Long> {
 }
 
 /*
- * Buscar autores por nombre
+ * Buscar autores por nombre/
  * Buscar autores por nacionalidad
  * Buscar autores que tengan al menos un libro asociado
  * Listar todos los autores

@@ -11,4 +11,6 @@
     <fullyQualifiedTypeName name="com.salesianostriana.dam.libreria.model.Libro"/>
     <fullyQualifiedTypeName name="java.lang.Long"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.salesianostriana.dam.libreria.repository.AutorRepository"/>
 </qualifiedTypeNameHistroy>

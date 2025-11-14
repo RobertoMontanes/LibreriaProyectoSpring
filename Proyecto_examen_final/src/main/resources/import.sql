@@ -1,4 +1,4 @@
--- Categorías
+	-- Categorías
 INSERT INTO categoria (nombre) VALUES ('Ciencia Ficción');
 INSERT INTO categoria (nombre) VALUES ('Fantasía');
 INSERT INTO categoria (nombre) VALUES ('Terror');

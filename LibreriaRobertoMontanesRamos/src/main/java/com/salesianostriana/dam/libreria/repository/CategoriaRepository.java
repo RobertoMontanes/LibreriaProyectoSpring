@@ -14,4 +14,5 @@ public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 
 /*
  * Buscar categoría por nombre
+ * 
  */
