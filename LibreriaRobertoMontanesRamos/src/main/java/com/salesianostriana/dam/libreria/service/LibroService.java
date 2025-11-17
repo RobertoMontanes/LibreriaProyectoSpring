@@ -9,14 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class LibroService { 
+public class LibroService {
 
     @Autowired
-    private LibroRepository libroRepository; 
-
-    // -------------------------------------------------------------------------
-    // MÉTODOS CRUD BÁSICOS
-    // -------------------------------------------------------------------------
+    private LibroRepository libroRepository;
 
     // Devuelve todos los libros
     public List<Libro> findAll() {
@@ -30,7 +26,6 @@ public class LibroService {
 
     // Guarda un nuevo libro o actualiza uno existente
     public Libro save(Libro libro) {
-        // Validación simple antes de guardar
         if (libro.getTitulo() == null || libro.getTitulo().trim().isEmpty()) {
             throw new IllegalArgumentException("El título del libro no puede estar vacío");
         }
@@ -52,11 +47,8 @@ public class LibroService {
         libroRepository.deleteById(id);
     }
 
-    // -------------------------------------------------------------------------
-    // MÉTODOS DE NEGOCIO ESPECÍFICOS
-    // -------------------------------------------------------------------------
-
-    // Busca libros cuyo título contenga una palabra o frase (sin distinguir mayúsculas)
+    // Busca libros cuyo título contenga una palabra o frase (sin distinguir
+    // mayúsculas)
     public List<Libro> buscarPorTitulo(String titulo) {
         return libroRepository.findByTituloContainingIgnoreCase(titulo);
     }
@@ -71,7 +63,8 @@ public class LibroService {
         return libroRepository.findByAutorNombreContainingIgnoreCase(nombreAutor);
     }
 
-    // Busca libros pertenecientes a una categoría concreta (por nombre exacto de la categoría)
+    // Busca libros pertenecientes a una categoría concreta (por nombre exacto de la
+    // categoría)
     public List<Libro> buscarPorCategoriaNombre(String categoriaNombre) {
         return libroRepository.findByCategoriaNombre(categoriaNombre);
     }

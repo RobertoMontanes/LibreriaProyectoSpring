@@ -9,14 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CategoriaService { // Clase única, sin interfaz ni @Transactional
+public class CategoriaService {
 
     @Autowired
-    private CategoriaRepository categoriaRepository; // Inyectamos el repositorio de Categoría
-
-    // -------------------------------------------------------------------------
-    // MÉTODOS CRUD BÁSICOS
-    // -------------------------------------------------------------------------
+    private CategoriaRepository categoriaRepository;
 
     // Devuelve todas las categorías de la base de datos
     public List<Categoria> findAll() {
@@ -44,7 +40,6 @@ public class CategoriaService { // Clase única, sin interfaz ni @Transactional
 
     // Edita una categoría existente (realmente hace lo mismo que save)
     public Categoria edit(Categoria categoria) {
-        // Podrías añadir aquí una comprobación de existencia antes de editar
         return categoriaRepository.save(categoria);
     }
 
